@@ -130,12 +130,7 @@ export const portfolioContent = {
         href: "https://www.adityachauhan.co.in/",
       },
       accent: "from-brand-500/20 via-cyan-450/10 to-transparent",
-      thumbnail: createProjectThumbnail({
-        eyebrow: "Portfolio",
-        title: "Frontend Portfolio",
-        subtitle: "Motion-first single-page showcase",
-        colors: ["#356fff", "#22d3ee"],
-      }),
+      thumbnail: "/images/Frontend-Portfolio.png",
       visual: {
         label: "Hero Visual",
         kicker: "Portfolio System",
@@ -354,12 +349,12 @@ export const portfolioContent = {
     heading: "If you need a frontend developer who can combine clean execution with strong presentation, let’s talk.",
     description:
       "I am open to internships, freelance opportunities, and product-focused frontend roles where polish, clarity, and speed matter.",
-    email: "2k23.cs2313432@gmail.com",
+    email: "adityachauhanjhansi@gmail.com",
     note: "Send a message and I will get back to you as soon as possible.",
     social: {
       github: "https://github.com/Aditya-Chauhan24",
       linkedin: "https://www.linkedin.com/in/aditya-chauhan-2bba3a329/",
-      email: "mailto:adityachauhanjhansi@gmail.com",
+      href="mailto:adityachauhanjhansi@gmail.com?subject=Portfolio Inquiry&body=Hello Aditya,"
     },
   },
 };
