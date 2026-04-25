@@ -50,10 +50,6 @@ function ProjectModal({ project, onClose }) {
 
         <div className="mt-8 grid gap-6 md:grid-cols-[1.1fr_0.9fr]">
           <div>
-            <div className="rounded-[1.5rem] border border-white/10 bg-white/5 p-5 backdrop-blur-sm">
-              <p className="text-sm font-semibold uppercase tracking-[0.24em] text-cyan-300">Problem Statement</p>
-              <p className="mt-3 text-sm leading-7 text-slate-300">{project.problem}</p>
-            </div>
             <div className="mt-5 rounded-[1.5rem] border border-white/10 bg-white/5 p-5 backdrop-blur-sm">
               <p className="text-sm font-semibold uppercase tracking-[0.24em] text-cyan-300">Key Features</p>
               <div className="mt-4 grid gap-3">
