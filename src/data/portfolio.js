@@ -354,7 +354,7 @@ export const portfolioContent = {
     social: {
       github: "https://github.com/Aditya-Chauhan24",
       linkedin: "https://www.linkedin.com/in/aditya-chauhan-2bba3a329/",
-      href="mailto:adityachauhanjhansi@gmail.com?subject=Portfolio Inquiry&body=Hello Aditya,"
+      email: "mailto:adityachauhanjhansi@gmail.com",
     },
   },
 };
