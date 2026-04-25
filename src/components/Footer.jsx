@@ -1,7 +1,7 @@
 function Footer({ navigation, social }) {
   return (
-    <footer className="relative z-10 border-t border-slate-200/70 py-8 dark:border-white/10">
-      <div className="mx-auto flex w-full max-w-6xl flex-col gap-4 px-4 text-sm text-slate-500 sm:px-6 lg:flex-row lg:items-center lg:justify-between dark:text-slate-400">
+    <footer className="relative z-10 py-8">
+      <div className="mx-auto flex w-full max-w-6xl flex-col gap-4 rounded-[2rem] border border-amber-200/80 bg-white/55 px-4 py-6 text-sm text-slate-500 shadow-ambient backdrop-blur-xl sm:px-6 dark:border-white/10 dark:bg-white/[0.04] dark:text-slate-400 lg:flex-row lg:items-center lg:justify-between">
         <div>
           <p className="font-semibold text-slate-800 dark:text-slate-100">© 2026 Aditya Chauhan</p>
           <p className="mt-1">Frontend portfolio focused on clean UI, motion, and responsive execution.</p>

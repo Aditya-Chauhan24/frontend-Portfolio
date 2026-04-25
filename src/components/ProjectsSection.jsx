@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import SectionShell from "./SectionShell";
 import ProjectCard from "./ProjectCard";
 

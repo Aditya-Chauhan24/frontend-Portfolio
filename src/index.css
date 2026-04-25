@@ -20,6 +20,19 @@
     margin: 0;
     min-width: 320px;
     font-family: "Manrope", ui-sans-serif, system-ui, sans-serif;
+    background:
+      radial-gradient(circle at top, rgba(255, 244, 226, 0.92), transparent 32%),
+      linear-gradient(180deg, #fff8ee 0%, #f8efe4 48%, #f3ecff 100%);
+    color: #0f172a;
+    transition: background 500ms ease, color 300ms ease;
+  }
+
+  html.dark body {
+    background:
+      radial-gradient(circle at top, rgba(61, 102, 255, 0.18), transparent 28%),
+      radial-gradient(circle at 78% 18%, rgba(34, 211, 238, 0.14), transparent 22%),
+      linear-gradient(180deg, #08101f 0%, #090d19 54%, #140d23 100%);
+    color: #f8fafc;
   }
 
   * {
@@ -43,6 +56,54 @@
 @layer components {
   .section-shell {
     @apply mx-auto w-full max-w-6xl px-4 sm:px-6;
+  }
+
+  .glass-panel {
+    @apply border border-amber-200/80 bg-white/75 shadow-ambient backdrop-blur-xl dark:border-white/10 dark:bg-white/[0.06];
+    background-image:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.78), rgba(255, 244, 233, 0.72)),
+      radial-gradient(circle at top right, rgba(56, 200, 255, 0.12), transparent 38%);
+  }
+
+  .dark .glass-panel {
+    background-image:
+      linear-gradient(180deg, rgba(17, 24, 39, 0.82), rgba(9, 14, 28, 0.9)),
+      radial-gradient(circle at top right, rgba(56, 200, 255, 0.12), transparent 36%);
+  }
+
+  .interactive-ring {
+    @apply transition duration-500;
+    box-shadow:
+      0 18px 60px rgba(15, 23, 42, 0.14),
+      inset 0 1px 0 rgba(255, 255, 255, 0.45);
+  }
+
+  .interactive-ring:hover {
+    box-shadow:
+      0 24px 90px rgba(31, 86, 245, 0.18),
+      0 0 0 1px rgba(31, 86, 245, 0.12),
+      inset 0 1px 0 rgba(255, 255, 255, 0.55);
+  }
+
+  .dark .interactive-ring {
+    box-shadow:
+      0 20px 70px rgba(2, 6, 23, 0.55),
+      inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  }
+
+  .dark .interactive-ring:hover {
+    box-shadow:
+      0 24px 90px rgba(56, 200, 255, 0.16),
+      0 0 0 1px rgba(91, 152, 255, 0.14),
+      inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  }
+
+  .section-divider {
+    @apply mt-8 h-px w-full max-w-xl bg-gradient-to-r from-brand-500/40 via-cyan-450/45 to-transparent;
+  }
+
+  .accent-chip {
+    @apply inline-flex items-center gap-2 rounded-full border border-amber-200/80 bg-white/85 px-4 py-2 text-sm font-medium text-slate-700 shadow-sm backdrop-blur dark:border-white/10 dark:bg-white/5 dark:text-slate-200;
   }
 }
 

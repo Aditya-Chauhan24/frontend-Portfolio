@@ -1,3 +1,37 @@
+function createProjectThumbnail({ eyebrow, title, subtitle, colors }) {
+  const svg = `
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-label="${title}">
+      <defs>
+        <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="${colors[0]}" />
+          <stop offset="100%" stop-color="${colors[1]}" />
+        </linearGradient>
+        <linearGradient id="panel" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="rgba(255,255,255,0.92)" />
+          <stop offset="100%" stop-color="rgba(255,255,255,0.68)" />
+        </linearGradient>
+      </defs>
+      <rect width="1200" height="720" rx="48" fill="url(#bg)" />
+      <circle cx="1040" cy="110" r="120" fill="rgba(255,255,255,0.12)" />
+      <circle cx="180" cy="620" r="160" fill="rgba(15,23,42,0.12)" />
+      <rect x="72" y="72" width="1056" height="576" rx="36" fill="rgba(15,23,42,0.18)" />
+      <rect x="108" y="110" width="984" height="500" rx="28" fill="url(#panel)" />
+      <rect x="144" y="146" width="220" height="34" rx="17" fill="rgba(37,99,235,0.14)" />
+      <text x="172" y="168" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#1d4ed8" letter-spacing="2">${eyebrow}</text>
+      <text x="144" y="246" font-family="Arial, sans-serif" font-size="58" font-weight="700" fill="#0f172a">${title}</text>
+      <text x="144" y="298" font-family="Arial, sans-serif" font-size="26" font-weight="500" fill="#334155">${subtitle}</text>
+      <rect x="144" y="354" width="420" height="150" rx="24" fill="rgba(15,23,42,0.92)" />
+      <rect x="600" y="354" width="208" height="150" rx="24" fill="rgba(255,255,255,0.9)" />
+      <rect x="844" y="354" width="208" height="150" rx="24" fill="rgba(255,255,255,0.9)" />
+      <rect x="144" y="538" width="180" height="28" rx="14" fill="rgba(37,99,235,0.18)" />
+      <rect x="344" y="538" width="180" height="28" rx="14" fill="rgba(6,182,212,0.18)" />
+      <rect x="544" y="538" width="180" height="28" rx="14" fill="rgba(236,72,153,0.16)" />
+    </svg>
+  `;
+
+  return `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`;
+}
+
 export const portfolioContent = {
   navigation: [
     { label: "Home", href: "#home" },
@@ -23,9 +57,9 @@ export const portfolioContent = {
       "Clean, maintainable component systems",
     ],
     stats: [
-      { label: "Projects", value: "04" },
-      { label: "Core Stack", value: "React" },
-      { label: "Focus", value: "UI Engineering" },
+      { label: "Production-grade Projects", value: "4+" },
+      { label: "Reusable Components", value: "14+" },
+      { label: "Lighthouse Performance", value: "95+" },
     ],
     snapshot: {
       label: "Profile",
@@ -70,74 +104,186 @@ export const portfolioContent = {
     {
       title: "frontend-Portfolio",
       category: "Personal Portfolio Website",
-      problem:
-        "Most student portfolios look generic and fail to communicate frontend quality, interaction depth, or implementation discipline within the first few seconds.",
-      description:
-        "A premium single-page frontend portfolio built from scratch with motion, layered visuals, a recruiter-focused project section, and polished dark/light theming.",
+      valueProposition: "A recruiter-focused portfolio that sells frontend skill through structure, motion, and presentation quality in the first few seconds.",
+      summary:
+        "A premium single-page portfolio built from scratch with layered visuals, theme persistence, interactive sections, and a stronger storytelling system for project credibility.",
       techStack: ["React", "Vite", "Tailwind CSS", "Framer Motion"],
       features: [
         "Sticky navigation, animated hero, and theme persistence",
         "Interactive project modal with clean recruiter-focused content hierarchy",
         "Custom cursor, scroll progress, and responsive motion-first UI",
       ],
+      role: "Owned the full design-to-code workflow: UI direction, component architecture, responsive implementation, motion system, and content hierarchy.",
+      status: "Live and iterating",
+      timeline: "2026",
+      architecture:
+        "Structured as a Vite + React single-page application with reusable section shells, theme persistence through local storage, and motion layers separated into focused components for maintainability.",
+      challenges: [
+        "Avoiding a generic portfolio layout while keeping the experience readable for recruiters",
+        "Balancing animation richness with performance and mobile responsiveness",
+        "Creating project storytelling that feels product-oriented instead of resume-like",
+      ],
       metrics: ["Production-ready Vite build", "Responsive single-page architecture", "Motion-driven frontend UX"],
       github: "https://github.com/Aditya-Chauhan24/frontend-Portfolio",
-      demo: null,
+      demo: {
+        active: true,
+        href: "https://www.adityachauhan.co.in/",
+      },
       accent: "from-brand-500/20 via-cyan-450/10 to-transparent",
+      thumbnail: createProjectThumbnail({
+        eyebrow: "Portfolio",
+        title: "Frontend Portfolio",
+        subtitle: "Motion-first single-page showcase",
+        colors: ["#356fff", "#22d3ee"],
+      }),
+      visual: {
+        label: "Hero Visual",
+        kicker: "Portfolio System",
+        headline: "Structured sections, richer theming, and recruiter-first storytelling.",
+        supportingText: "The hero card mirrors a polished landing experience rather than a typical student portfolio page.",
+        stats: [
+          { value: "7", label: "Sections" },
+          { value: "2", label: "Themes" },
+        ],
+      },
     },
     {
       title: "Portfolio Workspace",
       category: "Full-Stack Portfolio Platform",
-      problem:
-        "A portfolio that mixes content, UI, and form handling too tightly becomes harder to evolve and harder to deploy cleanly across frontend and backend surfaces.",
-      description:
-        "A split frontend/backend portfolio workspace with a Vite frontend and Express API so content and contact handling can evolve independently.",
+      valueProposition: "A split frontend/backend portfolio workspace that keeps UI delivery independent from content and contact handling.",
+      summary:
+        "A workspace-based portfolio platform with a Vite frontend and Express API, designed to make deployment, content evolution, and form handling cleaner over time.",
       techStack: ["React", "Vite", "Express", "Node.js"],
       features: [
         "Separated frontend and backend workspaces for cleaner architecture",
         "API-driven content and contact form flow",
         "Deployment-oriented setup for frontend and backend hosting",
       ],
+      role: "Designed the workspace split, implemented the frontend structure, and integrated the API-driven contact/content flow.",
+      status: "Built and documented",
+      timeline: "2025",
+      architecture:
+        "Separated into frontend and backend workspaces so the UI can ship independently while API routes handle content and communication concerns behind a clean boundary.",
+      challenges: [
+        "Keeping the project simple enough for a portfolio while still showing real separation of concerns",
+        "Designing an API-backed contact flow without over-engineering the stack",
+        "Making deployment paths clear for both client and server surfaces",
+      ],
       metrics: ["Decoupled content layer", "API-backed contact flow", "Workspace-based project structure"],
       github: "https://github.com/Aditya-Chauhan24/Portfolio",
-      demo: null,
+      demo: {
+        active: false,
+        href: "",
+      },
       accent: "from-fuchsia-500/20 via-brand-500/10 to-transparent",
+      thumbnail: createProjectThumbnail({
+        eyebrow: "Workspace",
+        title: "Portfolio Workspace",
+        subtitle: "Frontend and API split cleanly",
+        colors: ["#a855f7", "#356fff"],
+      }),
+      visual: {
+        label: "System View",
+        kicker: "Workspace Split",
+        headline: "Frontend and backend surfaces separated for cleaner scaling.",
+        supportingText: "The visual focuses on project boundaries, content flow, and backend-backed interactions.",
+        stats: [
+          { value: "2", label: "Apps" },
+          { value: "API", label: "Contact Flow" },
+        ],
+      },
     },
     {
       title: "Dashboard UI Concept",
       category: "Frontend Interface Exercise",
-      problem:
-        "Dashboards often become visually noisy, which makes scanning metrics, hierarchy, and action areas harder for users.",
-      description:
-        "A frontend-focused dashboard concept created to improve visual hierarchy, reusable card patterns, and information density without clutter.",
+      valueProposition: "A cleaner dashboard concept built to improve scanability, card consistency, and dense information hierarchy.",
+      summary:
+        "A frontend UI exercise focused on reusable dashboard modules, stronger spacing discipline, and information density without visual clutter.",
       techStack: ["React", "Tailwind CSS", "Figma to Code", "UI Systems"],
       features: [
         "Reusable dashboard cards and visual summaries",
         "Balanced spacing for dense, data-first layouts",
         "Consistent system for cards, panels, and filters",
       ],
+      role: "Handled visual hierarchy, reusable card composition, layout implementation, and component-level UI consistency.",
+      status: "Concept build",
+      timeline: "2025",
+      architecture:
+        "Built around reusable dashboard cards, summary panels, and a repeatable surface system that can scale into a larger admin interface.",
+      challenges: [
+        "Reducing visual noise while keeping a data-heavy interface expressive",
+        "Establishing clear card hierarchy without relying on excessive decoration",
+        "Maintaining consistency across panels, summaries, and action areas",
+      ],
       metrics: ["Design-system minded", "Dashboard hierarchy", "Reusable UI primitives"],
       github: null,
-      demo: null,
+      demo: {
+        active: false,
+        href: "",
+      },
       accent: "from-emerald-400/20 via-brand-400/10 to-transparent",
+      thumbnail: createProjectThumbnail({
+        eyebrow: "Dashboard",
+        title: "Dashboard UI",
+        subtitle: "Scan-friendly metrics and cards",
+        colors: ["#10b981", "#38bdf8"],
+      }),
+      visual: {
+        label: "Dashboard Preview",
+        kicker: "UI Hierarchy",
+        headline: "Dense information blocks with calmer scanning behavior.",
+        supportingText: "A concept-driven visual focused on cards, filters, and summary modules.",
+        stats: [
+          { value: "12+", label: "UI Blocks" },
+          { value: "Dense", label: "Layout Mode" },
+        ],
+      },
     },
     {
       title: "Landing Page System",
       category: "Responsive Marketing UI",
-      problem:
-        "Marketing pages often overuse repetitive sections and generic visual patterns, which weakens first impression and conversion clarity.",
-      description:
-        "A landing-page style frontend exercise centered on modular sections, bold hierarchy, and cleaner storytelling across desktop and mobile layouts.",
+      valueProposition: "A modular landing page system designed for better first impression, scanning flow, and CTA clarity.",
+      summary:
+        "A marketing-style frontend exercise centered on modular storytelling sections, responsive rhythm, and clearer visual conversion paths.",
       techStack: ["React", "Responsive UI", "Design Systems", "CSS"],
       features: [
         "Modular section layout with stronger visual rhythm",
         "Responsive content structure for product storytelling",
         "Focused typography and CTA placement for better scanning",
       ],
+      role: "Defined the section system, responsive layout rules, and presentation layer for content-first storytelling.",
+      status: "UI exercise",
+      timeline: "2024",
+      architecture:
+        "Organized as a modular page system with repeatable section patterns, responsive layout rules, and consistent CTA placement to support storytelling.",
+      challenges: [
+        "Avoiding repetitive landing-page patterns while keeping the flow familiar",
+        "Creating clear visual rhythm across desktop and mobile breakpoints",
+        "Balancing strong typography with readable supporting content",
+      ],
       metrics: ["Responsive layout thinking", "Clear conversion flow", "Frontend presentation quality"],
       github: null,
-      demo: null,
+      demo: {
+        active: false,
+        href: "",
+      },
       accent: "from-sky-500/20 via-indigo-500/10 to-transparent",
+      thumbnail: createProjectThumbnail({
+        eyebrow: "Landing Page",
+        title: "Marketing System",
+        subtitle: "Responsive storytelling layout",
+        colors: ["#0ea5e9", "#6366f1"],
+      }),
+      visual: {
+        label: "Landing Page Mock",
+        kicker: "Story Flow",
+        headline: "Modular sections arranged for stronger conversion rhythm.",
+        supportingText: "The composition highlights CTA placement, typography, and visual pacing across breakpoints.",
+        stats: [
+          { value: "Mobile", label: "Responsive" },
+          { value: "CTA", label: "Optimized" },
+        ],
+      },
     },
   ],
   skills: [

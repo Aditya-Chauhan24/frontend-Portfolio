@@ -91,7 +91,7 @@ function App() {
   );
 
   return (
-    <div className="relative min-h-screen overflow-x-clip bg-[#f4f7fb] text-slate-950 transition-colors duration-500 dark:bg-slate-975 dark:text-slate-50">
+    <div className="relative min-h-screen overflow-x-clip bg-[#f7f1e8] text-slate-950 transition-colors duration-500 dark:bg-slate-975 dark:text-slate-50">
       <AnimatedBackground />
       <CustomCursor />
       <ScrollProgress />

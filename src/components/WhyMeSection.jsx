@@ -27,12 +27,17 @@ function WhyMeSection({ whyMe }) {
               whileHover={{ y: -8, rotateX: 2 }}
               className="glass-panel interactive-ring relative overflow-hidden rounded-[2rem] p-6"
             >
-              <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-r from-brand-500/15 via-cyan-400/10 to-transparent blur-2xl" />
-              <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-r from-brand-500 to-[#06b6d4] text-white">
+              <motion.div
+                className="absolute inset-x-0 top-0 h-24 bg-gradient-to-r from-brand-500/15 via-cyan-400/10 to-transparent blur-2xl"
+                animate={{ x: ["-8%", "5%", "-8%"] }}
+                transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+              />
+              <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-r from-brand-500 via-cyan-500 to-fuchsia-500 text-white">
                 <Icon className="h-5 w-5" />
               </span>
               <h3 className="mt-5 font-display text-2xl font-semibold">{item.title}</h3>
-              <p className="mt-4 text-base leading-8 text-slate-600 dark:text-slate-300">{item.body}</p>
+              <p className="mt-4 text-base leading-8 text-slate-700 dark:text-slate-300">{item.body}</p>
+              <div className="mt-6 h-px w-full bg-gradient-to-r from-brand-500/40 via-cyan-450/40 to-transparent" />
             </motion.article>
           );
         })}
